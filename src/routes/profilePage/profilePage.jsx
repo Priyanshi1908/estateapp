@@ -11,7 +11,6 @@ function ProfilePage() {
   const data = useLoaderData();
 
 const {updateUser, currentUser} = useContext(AuthContext)
-console.log("Data received from useLoaderData:", data);
 
   const navigate = useNavigate();
 
@@ -63,10 +62,8 @@ console.log("Data received from useLoaderData:", data);
               resolve={data.postResponse}
               errorElement={<p>Error loading posts!</p>}
             >
-              {(postResponse) => {
-            console.log("User posts response:", postResponse.data.userPosts);
-            return <List posts={postResponse.data.userPosts} />;
-          }}
+              {(postResponse) =>    <List posts ={postResponse.data.userPosts} />
+              }
             </Await>
           </Suspense>
           <div className="title">
@@ -77,10 +74,8 @@ console.log("Data received from useLoaderData:", data);
               resolve={data.postResponse}
               errorElement={<p>Error loading posts!</p>}
             >
-              {(postResponse) => {
-            console.log("Saved posts response:", postResponse.data.savedPosts);
-            return <List posts={postResponse.data.savedPosts} />;
-          }}
+              {(postResponse) =>    <List posts ={postResponse.data.savedPosts} />
+              }
             </Await>
           </Suspense>
           </div>
